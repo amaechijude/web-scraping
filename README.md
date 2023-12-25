@@ -1,4 +1,4 @@
-#Web scrapping with python
+# Web scrapping with python
 
 This web scrapping project makes use of the **BeautifulSoup library**.
 
