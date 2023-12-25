@@ -1,8 +1,8 @@
 from bs4 import BeautifulSoup
-import requests, re, fontstyle
+import requests, re
 html_text = requests.get('https://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&txtKeywords=Python&txtLocation=').text
 
-soup = BeautifulSoup(html_text, 'lxml')
+soup = BeautifulSoup(html_text, features="html.parser")
 jobs = soup.find_all('li', class_ = 'clearfix job-bx wht-shd-bx')
 comp = list()
 name = list()
@@ -18,7 +18,7 @@ for job in jobs:
         comp.append(y)
         name.append(b)
 
-print("Companies jobs that requires {} skill posted recently (less than 4 days) on https://www.timesjobs.com is listed below)".format(fontstyle.apply('Python','bold')).title())
+print("Companies jobs that requires {} skill posted recently (less than 4 days) on https://www.timesjobs.com is listed below)".format('Python'))
 print()
 print("{:<40} Skills".format('Company Name'))
 for index in range(0, len(comp)):
